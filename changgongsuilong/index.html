@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="长弓燧龙官网，深度解析这位著名游戏制作人、词作者的创作历程、代表作品《明日方舟》、《重返未来：1999》及音乐作品风格，提供游戏资讯、角色介绍与开发者访谈。">
+    <meta name="keywords" content="长弓燧龙,明日方舟,重返未来1999,游戏制作人,音乐人,游戏开发">
+    <title>长弓燧龙-游戏制作人与词曲创作者作品集与资讯中心</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Bio Section */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .bio-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .bio-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--bg-color);
+        }
+
+        .bio-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: #eee;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Works Grid */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .work-image {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .work-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .work-link {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Philosophy/Quotes */
+        .philosophy {
+            background-color: white;
+            text-align: center;
+            border-left: 5px solid var(--accent-color);
+            border-right: 5px solid var(--accent-color);
+            padding: 3rem;
+        }
+
+        .philosophy blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+            font-size: 1.5rem;
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .bio-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <span>Longbow</span>Archery
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">关于</a></li>
+                <li><a href="#works">代表作品</a></li>
+                <li><a href="#music">音乐创作</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>长弓燧龙</h1>
+            <p>知名游戏制作人、词曲创作者。以其独特的叙事风格和音乐才华，在游戏行业留下了深刻的印记。</p>
+            <a href="#works" class="btn">探索作品</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="bio-grid">
+                <div class="bio-card">
+                    <!-- Using a generic avatar as placeholder -->
+                    <img src="https://picsum.photos/seed/longbow/300/300" alt="长弓燧龙头像">
+                    <h3>长弓燧龙</h3>
+                    <p style="color:var(--text-light); font-size:0.9rem;">制作人 / 词作者</p>
+                    <div class="tags">
+                        <span class="tag">游戏开发</span>
+                        <span class="tag">音乐制作</span>
+                        <span class="tag">叙事设计</span>
+                    </div>
+                </div>
+                <div class="bio-content">
+                    <h3>创作理念</h3>
+                    <p>长弓燧龙在游戏创作中，始终致力于将深度的叙事体验与独特的音乐美学相结合。他擅长构建宏大的世界观，并通过角色扮演的方式，引导玩家深入探索故事背后的情感与冲突。其作品往往具有鲜明的个人风格，注重细节的打磨与情感的共鸣。</p>
+                    <br>
+                    <p>除了在游戏开发领域的成就，他在音乐创作方面也拥有极高的造诣，许多游戏中的经典曲目均由其亲自操刀或参与创作，为游戏增添了独特的艺术氛围。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Works -->
+    <section id="works" style="background-color: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>代表作品</h2>
+                <p>探索长弓燧龙主导开发的经典项目</p>
+            </div>
+            <div class="works-grid">
+                <!-- Work 1 -->
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="https://picsum.photos/seed/arknights/400/300" alt="明日方舟游戏截图">
+                        <span class="work-badge">策略塔防</span>
+                    </div>
+                    <div class="work-content">
+                        <h3>明日方舟</h3>
+                        <p>长弓燧龙担任项目制作人。这是一款以末日废土为背景的策略塔防手游。游戏构建了独特的“罗德岛”组织设定，通过丰富的剧情文本和角色塑造，讲述了干员们在混乱世界中寻求生存与希望的故事。</p>
+                        <a href="#" class="work-link">了解更多 &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Work 2 -->
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="https://picsum.photos/seed/ot99/400/300" alt="重返未来1999游戏截图">
+                        <span class="work-badge">Roguelite RPG</span>
+                    </div>
+                    <div class="work-content">
+                        <h3>重返未来：1999</h3>
+                        <p>长弓燧龙担任主制作人。游戏以20世纪60年代为背景，融合了复古美学与现代Roguelite玩法。作品中充满了对时代符号的致敬与解构，展现了其对于不同时代文化氛围的敏锐捕捉。</p>
+                        <a href="#" class="work-link">了解更多 &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Work 3 -->
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="https://picsum.photos/seed/wildlight/400/300" alt="未定事件簿游戏截图">
+                        <span class="work-badge">恋爱模拟</span>
+                    </div>
+                    <div class="work-content">
+                        <h3>未定事件簿</h3>
+                        <p>长弓燧龙参与制作的乙女向推理游戏。该作将恋爱模拟与卡牌推理相结合，在商业成功的同时，也展现了其在不同类型游戏题材上的探索能力。</p>
+                        <a href="#" class="work-link">了解更多 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music">
+        <div class="container">
+            <div class="section-header">
+                <h2>音乐创作</h2>
+                <p>聆听长弓燧龙笔下的旋律</p>
+            </div>
+            <div class="philosophy">
+                <blockquote>
+                    “音乐是连接玩家与角色的桥梁，是情感的另一种载体。”
+                </blockquote>
+                <p style="font-size: 0.9rem; color: #666;">—— 关于游戏配乐的创作感悟</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" style="background-color: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <p>关于长弓燧龙与相关作品的解答</p>
+            </div>
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">长弓燧龙目前担任什么职务？</div>
+                    <div class="faq-answer">
+                        长弓燧龙目前仍活跃于游戏行业，担任多家游戏公司的制作人及顾问职务，继续投身于新项目的开发与管理工作。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">除了游戏开发，他还创作音乐吗？</div>
+                    <div class="faq-answer">
+                        是的，长弓燧龙拥有丰富的音乐创作经验，他不仅亲自为多部作品创作主题曲和背景音乐，还参与过歌词的创作与演唱。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何关注他的最新动态？</div>
+                    <div class="faq-answer">
+                        关注官方发布的新闻动态或相关游戏厂商的公告，是获取其最新项目信息的最主要途径。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于长弓燧龙</h4>
+                <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.8;">
+                    本站致力于整理和展示长弓燧龙的游戏作品、音乐创作及相关资讯，为喜爱其作品的玩家与粉丝提供一个交流与了解的平台。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#about">人物简介</a></li>
+                    <li><a href="#works">代表作品</a></li>
+                    <li><a href="#music">音乐赏析</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关链接</h4>
+                <ul>
+                    <li><a href="#">明日方舟官网</a></li>
+                    <li><a href="#">重返未来1999官网</a></li>
+                    <li><a href="#">米哈游社区</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 长弓燧龙作品集展示页. All rights reserved. 此页面为粉丝制作，非官方网站。
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Simple FAQ Accordion Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
