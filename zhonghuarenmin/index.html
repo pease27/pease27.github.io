@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="中华人民共和国新闻出版署官方网站，提供新闻出版行业管理政策、行政许可、行政执法、版权保护、行业统计及资讯发布服务。">
+    <meta name="keywords" content="中华人民共和国新闻出版署,新闻出版署,国家新闻出版署,新闻出版行业管理,版权保护,图书出版,报刊出版,音像制品">
+    <title>中华人民共和国新闻出版署-国家新闻出版行业管理与行政执法平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #666;
+            --border-color: #dee2e6;
+            --white: #ffffff;
+            --red-alert: #d9534f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4f6f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: #f1f1f1;
+            font-size: 12px;
+            color: var(--text-light);
+            padding: 4px 0;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .main-header {
+            padding: 15px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .main-header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 4px;
+        }
+
+        .site-title h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .site-title p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-box input {
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            width: 250px;
+        }
+
+        .search-box button {
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            overflow-x: auto;
+        }
+
+        .nav-list li a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 15px;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-list li a:hover, .nav-list li a.active {
+            background-color: rgba(255,255,255,0.1);
+            border-bottom-color: var(--white);
+        }
+
+        /* Main Layout */
+        main {
+            flex: 1;
+            padding: 30px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .hero-card h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 14px;
+        }
+
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+
+        .news-list li a {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-right: 15px;
+        }
+
+        .news-date {
+            color: #999;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        /* Quick Links Grid */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .link-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .link-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .link-card h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .link-card p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Two Column Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        /* Policy Section */
+        .section-block {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header h2 {
+            font-size: 18px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-header .more-link {
+            font-size: 13px;
+            color: var(--primary-color);
+        }
+
+        .policy-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .policy-table th, .policy-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .policy-table th {
+            background-color: var(--secondary-color);
+            font-weight: 600;
+            width: 80px;
+        }
+
+        .policy-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Sidebar */
+        aside .sidebar-widget {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-widget h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .notice-list {
+            list-style: none;
+        }
+
+        .notice-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+
+        .notice-list li a {
+            display: block;
+        }
+
+        .notice-tag {
+            display: inline-block;
+            padding: 1px 6px;
+            background-color: #e9ecef;
+            color: #666;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .quick-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                padding-bottom: 5px;
+            }
+            .search-box {
+                display: none; /* Hide search on mobile for simplicity */
+            }
+            .policy-table th, .policy-table td {
+                padding: 8px 5px;
+                font-size: 13px;
+            }
+            .top-bar {
+                display: none;
+            }
+            .link-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <span>今天是：2023年10月27日 星期五</span>
+                <span>访问量：<span id="visitor-count">1,245,892</span></span>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="container">
+                <div class="logo-area">
+                    <div class="logo-placeholder">国新</div>
+                    <div class="site-title">
+                        <h1>中华人民共和国新闻出版署</h1>
+                        <p>National Administration of Press and Publication</p>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="请输入关键词搜索...">
+                    <button>搜索</button>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">政务公开</a></li>
+                    <li><a href="#">政策法规</a></li>
+                    <li><a href="#">行政审批</a></li>
+                    <li><a href="#">行业监管</a></li>
+                    <li><a href="#">版权保护</a></li>
+                    <li><a href="#">新闻发布</a></li>
+                    <li><a href="#">统计信息</a></li>
+                    <li><a href="#">互动交流</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                首页 &gt; 政务公开 &gt; 新闻动态
+            </div>
+
+            <section class="hero">
+                <div class="hero-card">
+                    <h2>
+                        <span>最新公告与要闻</span>
+                        <a href="#" class="more-link">查看更多 &gt;</a>
+                    </h2>
+                    <ul class="news-list">
+                        <li>
+                            <a href="#">关于开展2023年网络文学专项整治工作的通知</a>
+                            <span class="news-date">2023-10-26</span>
+                        </li>
+                        <li>
+                            <a href="#">国家新闻出版署关于公布2023年第五批优秀现实题材网络文学创作工程入选作品的通知</a>
+                            <span class="news-date">2023-10-25</span>
+                        </li>
+                        <li>
+                            <a href="#">新闻出版行业标准化技术委员会召开2023年全体会议</a>
+                            <span class="news-date">2023-10-24</span>
+                        </li>
+                        <li>
+                            <a href="#">关于进一步加强图书出版单位编校质量管理的通知</a>
+                            <span class="news-date">2023-10-23</span>
+                        </li>
+                        <li>
+                            <a href="#">国家版权局关于查处网络侵权盗版案件的通报</a>
+                            <span class="news-date">2023-10-22</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hero-card">
+                    <h2>重要通知</h2>
+                    <ul class="news-list">
+                        <li>
+                            <a href="#">关于举办第十一届中国出版政府奖评选表彰工作的通知</a>
+                            <span class="news-date">10-26</span>
+                        </li>
+                        <li>
+                            <a href="#">关于调整部分期刊出版许可审批流程的公告</a>
+                            <span class="news-date">10-24</span>
+                        </li>
+                        <li>
+                            <a href="#">关于开展2023年印刷企业资质复核的通知</a>
+                            <span class="news-date">10-20</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="quick-links">
+                <a href="#" class="link-card">
+                    <span class="link-icon">📄</span>
+                    <h3>在线办事</h3>
+                    <p>行政审批事项办理</p>
+                </a>
+                <a href="#" class="link-card">
+                    <span class="link-icon">⚖️</span>
+                    <h3>法规库</h3>
+                    <p>法律法规全文检索</p>
+                </a>
+                <a href="#" class="link-card">
+                    <span class="link-icon">📢</span>
+                    <h3>新闻发布会</h3>
+                    <p>最新政策解读</p>
+                </a>
+                <a href="#" class="link-card">
+                    <span class="link-icon">📊</span>
+                    <h3>行业统计</h3>
+                    <p>图书、报刊数据</p>
+                </a>
+            </section>
+
+            <div class="content-grid">
+                <div class="main-content">
+                    <section class="section-block">
+                        <div class="section-header">
+                            <h2>政策法规</h2>
+                            <a href="#" class="more-link">更多法规 &gt;</a>
+                        </div>
+                        <table class="policy-table">
+                            <thead>
+                                <tr>
+                                    <th>发文号</th>
+                                    <th>标题</th>
+                                    <th>发布日期</th>
+                                    <th>发布单位</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>国新办发〔2023〕XX号</td>
+                                    <td><a href="#">关于进一步规范网络游戏出版运营活动的通知</a></td>
+                                    <td>2023-10-20</td>
+                                    <td>国家新闻出版署</td>
+                                </tr>
+                                <tr>
+                                    <td>新出办发〔2023〕XX号</td>
+                                    <td><a href="#">出版业“十四五”时期发展规划</a></td>
+                                    <td>2023-10-15</td>
+                                    <td>国家新闻出版署</td>
+                                </tr>
+                                <tr>
+                                    <td>国版发〔2023〕XX号</td>
+                                    <td><a href="#">著作权法实施条例（修订草案征求意见稿）</a></td>
+                                    <td>2023-10-12</td>
+                                    <td>国家版权局</td>
+                                </tr>
+                                <tr>
+                                    <td>新出办发〔2023〕XX号</td>
+                                    <td><a href="#">关于进一步加强学术出版规范的通知</a></td>
+                                    <td>2023-10-05</td>
+                                    <td>国家新闻出版署</td>
+                                </tr>
+                                <tr>
+                                    <td>新出办发〔2023〕XX号</td>
+                                    <td><a href="#">图书、期刊、音像制品、电子出版物重大选题备案办法</a></td>
+                                    <td>2023-09-28</td>
+                                    <td>国家新闻出版署</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section class="section-block">
+                        <div class="section-header">
+                            <h2>行业监管动态</h2>
+                            <a href="#" class="more-link">查看全部 &gt;</a>
+                        </div>
+                        <ul class="news-list">
+                            <li>
+                                <a href="#">通报2023年第三季度图书出版质量专项检查结果</a>
+                                <span class="news-date">2023-10-27</span>
+                            </li>
+                            <li>
+                                <a href="#">国家版权局开展“剑网2023”专项行动阶段性成果通报</a>
+                                <span class="news-date">2023-10-26</span>
+                            </li>
+                            <li>
+                                <a href="#">关于规范互联网新闻信息服务信息转载行为的指导意见</a>
+                                <span class="news-date">2023-10-25</span>
+                            </li>
+                            <li>
+                                <a href="#">新闻出版行业职业技能鉴定中心举办全国新闻出版从业人员技能竞赛</a>
+                                <span class="news-date">2023-10-24</span>
+                            </li>
+                            <li>
+                                <a href="#">关于规范网络文学阅读平台推广行为的公告</a>
+                                <span class="news-date">2023-10-23</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+
+                <aside>
+                    <div class="sidebar-widget">
+                        <h3>机构职能</h3>
+                        <ul class="notice-list">
+                            <li><a href="#">主要职责</a></li>
+                            <li><a href="#">领导信息</a></li>
+                            <li><a href="#">内设机构</a></li>
+                            <li><a href="#">直属单位</a></li>
+                            <li><a href="#">事业单位名录</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3>统计数据</h3>
+                        <ul class="notice-list">
+                            <li><a href="#">2022年新闻出版产业分析报告</a></li>
+                            <li><a href="#">2023年上半年全国图书出版统计</a></li>
+                            <li><a href="#">全国报纸出版单位基本情况</a></li>
+                            <li><a href="#">版权登记统计公报</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3>在线咨询</h3>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;">如果您在行政审批或政策咨询方面有疑问，请点击下方按钮。</p>
+                        <a href="#" style="display: block; background-color: var(--primary-color); color: white; text-align: center; padding: 10px; border-radius: 4px;">进入咨询大厅</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p>中华人民共和国新闻出版署是国务院直属机构，负责全国新闻出版行业的管理工作，包括图书、报纸、期刊、音像制品、电子出版物、网络出版物等的管理。</p>
+                    <p>地址：北京市西城区宣武门西大街57号</p>
+                    <p>邮编：100053</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">中国政府网</a></li>
+                        <li><a href="#">国家版权局</a></li>
+                        <li><a href="#">中国出版协会</a></li>
+                        <li><a href="#">中国作家协会</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">监督举报电话：010-12331</a></li>
+                        <li><a href="#">办公电话：010-83156291</a></li>
+                        <li><a href="#">传真：010-83157037</a></li>
+                        <li><a href="#">电子邮箱：service@nppa.gov.cn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 中华人民共和国新闻出版署 版权所有 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互脚本，用于增强用户体验
+        document.addEventListener('DOMContentLoaded', function() {
+            // 模拟访客计数增加
+            const counterElement = document.getElementById('visitor-count');
+            let count = 1245892;
+            setInterval(() => {
+                if(Math.random() > 0.7) {
+                    count++;
+                    counterElement.innerText = count.toLocaleString();
+                }
+            }, 5000);
+
+            // 导航栏点击效果
+            const navLinks = document.querySelectorAll('.nav-list a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if(!this.classList.contains('active')) {
+                        e.preventDefault();
+                        navLinks.forEach(n => n.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
