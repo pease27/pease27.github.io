@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒险岛奇袭者加点-职业构建、技能配置与实战指南</title>
+    <meta name="description" content="本站提供详细的冒险岛奇袭者加点攻略，涵盖技能优先级、属性分配建议、流派选择（如纯爆发流、续航流）以及不同阶段的成长规划，助你打造最强奇袭者。">
+    <meta name="keywords" content="冒险岛奇袭者加点, 冒险岛奇袭者技能, 冒险岛奇袭者攻略, 冒险岛加点, 冒险岛职业技能">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title small {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: normal;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        /* Skill Tree */
+        .skill-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .skill-node {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            transition: transform 0.2s;
+        }
+
+        .skill-node:hover {
+            transform: translateX(5px);
+            border-color: var(--accent-color);
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .skill-info {
+            flex-grow: 1;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            font-size: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .skill-level {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .skill-level.max {
+            background-color: #27ae60;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .stat-bar {
+            margin-bottom: 15px;
+        }
+
+        .stat-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+
+        .progress-bg {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 1s ease-in-out;
+        }
+
+        .stat-fill.dps { background-color: #e74c3c; }
+        .stat-fill.hp { background-color: #3498db; }
+        .stat-fill.crit { background-color: #9b59b6; }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .data-table th, .data-table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table th {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        .tag.burst { background: #ffebee; color: #c62828; }
+        .tag.sustain { background: #e3f2fd; color: #1565c0; }
+        .tag.hybrid { background: #fff3e0; color: #ef6c00; }
+
+        /* FAQ Section */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            cursor: pointer;
+            color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-question::after {
+            content: '+';
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            display: none;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            padding-left: 20px;
+            border-left: 2px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <div class="logo">冒险岛<span>攻略网</span></div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">奇袭者加点</a></li>
+                <li><a href="#">职业百科</a></li>
+                <li><a href="#">技能模拟</a></li>
+                <li><a href="#">装备推荐</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>奇袭者加点全解析</h1>
+        <p>深入剖析奇袭者核心技能机制，提供爆发流与续航流的最优加点方案，助你在冒险岛世界中快速成长。</p>
+    </div>
+</div>
+
+<main class="container">
+    <div class="content-grid">
+        <!-- Left Column: Detailed Guide -->
+        <section class="main-column">
+            
+            <!-- Core Skills Section -->
+            <article class="card">
+                <h2 class="section-title">
+                    核心技能加点逻辑
+                    <small>必点技能与优先级</small>
+                </h2>
+                <p style="margin-bottom: 20px; color: var(--text-light);">
+                    奇袭者作为高机动性的物理输出职业，技能加点需根据战斗场景（刷怪效率 vs BOSS爆发）进行微调。以下是通用的核心加点建议。
+                </p>
+                
+                <div class="skill-tree">
+                    <div class="skill-node">
+                        <div class="skill-icon">1</div>
+                        <div class="skill-info">
+                            <div class="skill-name">乱射</div>
+                            <div class="skill-desc">奇袭者的核心AOE技能，提供高额物理伤害。建议点满。</div>
+                        </div>
+                        <div class="skill-level max">Lv.30</div>
+                    </div>
+
+                    <div class="skill-node">
+                        <div class="skill-icon">2</div>
+                        <div class="skill-info">
+                            <div class="skill-name">幻影分身</div>
+                            <div class="skill-desc">增加攻击力和暴击，是所有流派的基石技能。</div>
+                        </div>
+                        <div class="skill-level max">Lv.30</div>
+                    </div>
+
+                    <div class="skill-node">
+                        <div class="skill-icon">3</div>
+                        <div class="skill-info">
+                            <div class="skill-name">多重箭</div>
+                            <div class="skill-desc">被动技能，增加攻击次数和伤害。点满以提升基础DPS。</div>
+                        </div>
+                        <div class="skill-level max">Lv.30</div>
+                    </div>
+
+                    <div class="skill-node">
+                        <div class="skill-icon">4</div>
+                        <div class="skill-info">
+                            <div class="skill-name">幻影突袭</div>
+                            <div class="skill-desc">主要单体爆发技能，用于对BOSS或精英怪造成重创。</div>
+                        </div>
+                        <div class="skill-level max">Lv.30</div>
+                    </div>
+
+                    <div class="skill-node">
+                        <div class="skill-icon">5</div>
+                        <div class="skill-info">
+                            <div class="skill-name">二段跳</div>
+                            <div class="skill-desc">被动技能，增加移动速度和跳跃力，对操作手感至关重要。</div>
+                        </div>
+                        <div class="skill-level max">Lv.30</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Advanced Strategies -->
+            <article class="card">
+                <h2 class="section-title">
+                    进阶流派选择
+                    <small>爆发流 vs 续航流</small>
+                </h2>
+                <p style="margin-bottom: 15px; color: var(--text-light);">根据您的游戏习惯，选择不同的技能分配方案。</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>技能分支</th>
+                            <th>核心思路</th>
+                            <th>适用场景</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tag burst">纯爆发流</span></td>
+                            <td>优先点满幻影分身与幻影突袭，牺牲部分生存技能，追求瞬间最高DPS。</td>
+                            <td>BOSS挑战、竞技场</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag sustain">续航流</span></td>
+                            <td>强化乱射和多重箭的CD缩减，增加生存能力，适合长时间挂机或日常任务。</td>
+                            <td>日常刷图、组队任务</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag hybrid">均衡流</span></td>
+                            <td>在爆发与生存之间取得平衡，所有核心技能点至10-20级，适应多变环境。</td>
+                            <td>新手期、过渡期</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+        </section>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            
+            <!-- Attribute Allocation -->
+            <div class="sidebar-widget">
+                <h3 class="section-title" style="border:none; padding:0; font-size: 1.2rem;">属性分配建议</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">奇袭者对敏捷有较高需求，但智力属性对技能伤害有加成。</p>
+                
+                <div class="stat-bar">
+                    <div class="stat-label"><span>敏捷 (DEX)</span> <span>优先级: 高</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="stat-bar">
+                    <div class="stat-label"><span>智力 (INT)</span> <span>优先级: 中</span></div>
+                    <div class="progress-bg"><div class="progress-fill stat-fill.crit" style="width: 60%;"></div></div>
+                </div>
+
+                <div class="stat-bar">
+                    <div class="stat-label"><span>幸运 (LUK)</span> <span>优先级: 低</span></div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 20%;"></div></div>
+                </div>
+            </div>
+
+            <!-- Common Mistakes -->
+            <div class="sidebar-widget">
+                <h3 class="section-title" style="border:none; padding:0; font-size: 1.2rem;">常见误区</h3>
+                <ul style="font-size: 0.9rem; color: #555;">
+                    <li style="margin-bottom: 10px;"><strong>误区1：</strong> 盲目追求全敏。</li>
+                    <li style="margin-bottom: 10px;"><strong>修正：</strong> 奇袭者的技能伤害受智力影响，建议保持一定比例的智力加点。</li>
+                    <li style="margin-bottom: 10px;"><strong>误区2：</strong> 忽视二段跳等级。</li>
+                    <li><strong>修正：</strong> 二段跳不仅是位移，还提供攻击力加成，不可忽视。</li>
+                </ul>
+            </div>
+
+            <!-- FAQ -->
+            <div class="sidebar-widget">
+                <h3 class="section-title" style="border:none; padding:0; font-size: 1.2rem;">常见问题</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">奇袭者前期怎么加点？</div>
+                    <div class="faq-answer">前期资源有限，建议优先点满【幻影分身】、【多重箭】和【二段跳】。这三个技能能显著提升你的练级效率和生存能力。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">点满所有技能需要多少点数？</div>
+                    <div class="faq-answer">奇袭者总技能点数有限，点满核心技能约需200点。建议保留部分技能点到10-15级以备不时之需。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">生存技能值得点吗？</div>
+                    <div class="faq-answer">如果主要进行刷图，建议适当点满【闪避】或【生命恢复】；如果专注于BOSS战，建议将技能点集中在输出上。</div>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 冒险岛攻略网 - 专注于奇袭者职业深度解析与成长指南。</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">本站内容仅供玩家参考，游戏数值可能随版本更新而变化。</p>
+    </div>
+</footer>
+
+<script>
+    // Simple FAQ interaction
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close others
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
