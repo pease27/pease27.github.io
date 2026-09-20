@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幻梦馆百度影音-高清影视资源聚合与在线播放平台</title>
+    <meta name="description" content="幻梦馆百度影音提供海量高清电影、电视剧、动漫及综艺资源的在线播放服务，支持百度影音播放器，界面简洁流畅，更新及时，是您的首选影视娱乐平台。">
+    <meta name="keywords" content="幻梦馆百度影音,在线观看,高清电影,电视剧,百度影音播放器,影视资源">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff4b1f;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f4f6f9;
+            --bg-card: #ffffff;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span.more {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: normal;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--secondary-color);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary-color);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/cinema/1600/600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
+        }
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .cat-item {
+            background: var(--bg-card);
+            padding: 15px 10px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .cat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            color: var(--primary-color);
+        }
+
+        .cat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-thumb {
+            position: relative;
+            padding-top: 140%; /* 5:7 Aspect Ratio */
+            background: #eee;
+        }
+
+        .card-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-body {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-tags {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tag {
+            background: #f0f2f5;
+            color: var(--text-light);
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            margin: 10px 0 5px;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                height: 300px;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">幻梦馆</a>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索电影、电视剧、动漫...">
+            <button aria-label="搜索">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">电影</a>
+            <a href="#">电视剧</a>
+            <a href="#">动漫</a>
+            <a href="#">综艺</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>沉浸式视听盛宴<br>海量高清资源随心看</h1>
+            <p>幻梦馆百度影音致力于为用户提供流畅、高清的在线影视播放体验，支持多格式解析，告别卡顿。</p>
+            <a href="#latest" class="btn btn-primary">立即观看</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Categories -->
+        <section>
+            <div class="section-title">热门分类</div>
+            <div class="category-grid">
+                <div class="cat-item"><span class="cat-icon">🎬</span>动作片</div>
+                <div class="cat-item"><span class="cat-icon">🎭</span>喜剧片</div>
+                <div class="cat-item"><span class="cat-icon">🔮</span>科幻片</div>
+                <div class="cat-item"><span class="cat-icon">❤️</span>爱情片</div>
+                <div class="cat-item"><span class="cat-icon">😱</span>恐怖片</div>
+                <div class="cat-item"><span class="cat-icon">🕵️</span>悬疑片</div>
+                <div class="cat-item"><span class="cat-icon">🚗</span>犯罪片</div>
+                <div class="cat-item"><span class="cat-icon">📺</span>国产剧</div>
+                <div class="cat-item"><span class="cat-icon">🌏</span>美剧</div>
+                <div class="cat-item"><span class="cat-icon">🎌</span>日韩剧</div>
+                <div class="cat-item"><span class="cat-icon">🧞</span>动漫</div>
+                <div class="cat-item"><span class="cat-icon">🎪</span>综艺</div>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section id="latest">
+            <div class="section-title">
+                最新更新
+                <span class="more"><a href="#">查看更多 &raquo;</a></span>
+            </div>
+            <div class="video-grid">
+                <!-- Video Card 1 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie1/400/560" alt="星际穿越海报">
+                        <span class="play-badge">高清</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">星际穿越：时空漫游指南</h3>
+                        <div class="card-meta">
+                            <span>科幻 / 冒险</span>
+                            <span>2024-05-20</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">4K</span>
+                            <span class="tag">杜比音效</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video Card 2 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie2/400/560" alt="都市夜归人海报">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">都市夜归人：迷雾侦探</h3>
+                        <div class="card-meta">
+                            <span>悬疑 / 惊悚</span>
+                            <span>2024-05-19</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">百度影音</span>
+                            <span class="tag">1080P</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video Card 3 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie3/400/560" alt="青春校园海报">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">夏日青春：未完的约定</h3>
+                        <div class="card-meta">
+                            <span>爱情 / 校园</span>
+                            <span>2024-05-18</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">国产剧</span>
+                            <span class="tag">全集</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video Card 4 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie4/400/560" alt="赛博朋克海报">
+                        <span class="play-badge">高清</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">霓虹幻梦：赛博纪元</h3>
+                        <div class="card-meta">
+                            <span>动漫 / 科幻</span>
+                            <span>2024-05-18</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">日漫</span>
+                            <span class="tag">连载中</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video Card 5 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie5/400/560" alt="历史风云海报">
+                        <span class="play-badge">高清</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">历史风云：王朝兴衰录</h3>
+                        <div class="card-meta">
+                            <span>历史 / 剧情</span>
+                            <span>2024-05-17</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">国产剧</span>
+                            <span class="tag">高分</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video Card 6 -->
+                <article class="video-card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/movie6/400/560" alt="极限运动海报">
+                        <span class="play-badge">HD</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">极限挑战：无人区生存</h3>
+                        <div class="card-meta">
+                            <span>真人秀 / 冒险</span>
+                            <span>2024-05-17</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">综艺</span>
+                            <span class="tag">高清</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h3>极速播放</h3>
+                    <p>采用先进解析技术，秒开不卡顿</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>安全无毒</h3>
+                    <p>绿色无毒，无广告弹窗干扰</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📺</span>
+                    <h3>多格式支持</h3>
+                    <p>完美适配百度影音及主流播放器</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔄</span>
+                    <h3>每日更新</h3>
+                    <p>海量资源库，每天同步最新剧集</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于幻梦馆</h4>
+                <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.8;">
+                    幻梦馆是一个致力于分享高清影视资源的在线平台。我们尊重版权，所有内容均来自互联网，仅供个人学习与交流使用。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">用户协议</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门标签</h4>
+                <ul>
+                    <li><a href="#">最新电影</a></li>
+                    <li><a href="#">热门电视剧</a></li>
+                    <li><a href="#">经典动漫</a></li>
+                    <li><a href="#">综艺大全</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>下载中心</h4>
+                <ul>
+                    <li><a href="#">百度影音下载</a></li>
+                    <li><a href="#">迅雷下载</a></li>
+                    <li><a href="#">手机APP</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 幻梦馆百度影音. All Rights Reserved. 本站内容仅供学习交流，请于下载后24小时内删除。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+  </html>
